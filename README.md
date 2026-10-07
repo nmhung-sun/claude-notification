@@ -2,11 +2,29 @@
 
 A [Claude Code](https://claude.com/claude-code) plugin that plays a sound when Claude finishes a task or is waiting for you. It is language- and framework-agnostic: any project, any stack.
 
-| Event | Sound |
+| Event | Sound file |
 | --- | --- |
 | Task complete (`Stop` hook) | `complete.mp3` |
 | Waiting for your approval (`Notification`, `permission_prompt`) | `wait-for-approval.mp3` |
 | Idle, waiting for your input (`Notification`, `idle_prompt`) | `wait-for-approval.mp3` |
+
+## Presets
+
+Pick a sound set with the `preset` option:
+
+| Preset | Description |
+| --- | --- |
+| `default` | The original pair |
+| `bong` | Bong sounds |
+| `meme` | Meme sounds |
+
+Claude Code asks for it when you enable the plugin. Change it later in the `/config` panel (needs Claude Code 2.1.271 or newer), or set it in your user-level `~/.claude/settings.json` (project and local settings files ignore plugin options):
+
+```json
+{ "pluginConfigs": { "sound-notify@nmhung-sun": { "options": { "preset": "bong" } } } }
+```
+
+An unknown or missing preset falls back to `default`.
 
 ## Install
 
@@ -39,7 +57,7 @@ If no player is found, the hook does nothing and never blocks Claude.
 
 ## Customize
 
-Replace the files in `sounds/` (keep the names) in a fork, or edit `hooks/hooks.json` to change which events play which sound. Sounds are referenced by file name without extension: `play-sound.sh <name>` plays `sounds/<name>.mp3`.
+In a fork, add a folder under `sounds/` containing `complete.mp3` and `wait-for-approval.mp3`, then add its name to `options` in `.claude-plugin/plugin.json`. To change which events play which sound, edit `hooks/hooks.json`: `play-sound.sh <name>` plays `sounds/<preset>/<name>.mp3`.
 
 ## Releasing (maintainers)
 

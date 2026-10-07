@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.1.0]
+
+- Sound presets: new `preset` option (`default`, `bong`, `meme`). Sounds moved to `sounds/<preset>/`.
+- Falls back to `default` for an unknown preset.
+
 ## [1.0.0]
 
 - Initial release as a Claude Code plugin (`sound-notify`).

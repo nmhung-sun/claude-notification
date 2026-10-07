@@ -1,7 +1,14 @@
 #!/bin/sh
-# Usage: play-sound.sh <name>   (plays sounds/<name>.mp3 without blocking; silent no-op if no player is found)
+# Usage: play-sound.sh <name>
+# Plays sounds/<preset>/<name>.mp3 without blocking; silent no-op if no player is found.
+# The preset comes from the plugin option (CLAUDE_PLUGIN_OPTION_PRESET) and falls back to "default".
 dir=$(cd "$(dirname "$0")" && pwd)
-file="$dir/../sounds/$1.mp3"
+preset="${CLAUDE_PLUGIN_OPTION_PRESET:-default}"
+case "$preset" in
+  *[!A-Za-z0-9_-]*) preset=default ;;
+esac
+file="$dir/../sounds/$preset/$1.mp3"
+[ -f "$file" ] || file="$dir/../sounds/default/$1.mp3"
 [ -f "$file" ] || exit 0
 
 play() {
