@@ -11,16 +11,16 @@ A [Claude Code](https://claude.com/claude-code) plugin that plays a sound when C
 ## Install
 
 ```bash
-claude plugin marketplace add <owner>/claude-notification
+claude plugin marketplace add nmhung-sun/claude-notification
 claude plugin install sound-notify@nmhung-sun
 ```
 
-Or from inside Claude Code: `/plugin marketplace add <owner>/claude-notification`, then `/plugin install sound-notify@nmhung-sun`.
+Or from inside Claude Code: `/plugin marketplace add nmhung-sun/claude-notification`, then `/plugin install sound-notify@nmhung-sun`.
 
 To pin a release tag, add the marketplace with the tag:
 
 ```bash
-claude plugin marketplace add <owner>/claude-notification@1.0.0
+claude plugin marketplace add nmhung-sun/claude-notification@1.0.0
 ```
 
 To share it with a team, add `--scope project` so it is declared in the project's `.claude/settings.json`.
