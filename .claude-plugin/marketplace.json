@@ -1,0 +1,12 @@
+{
+  "name": "nmhung-sun",
+  "description": "Sound notifications for Claude Code.",
+  "owner": { "name": "nmhung-sun" },
+  "plugins": [
+    {
+      "name": "sound-notify",
+      "source": ".",
+      "description": "Sound notifications for Claude Code: task complete and waiting for approval or input."
+    }
+  ]
+}
